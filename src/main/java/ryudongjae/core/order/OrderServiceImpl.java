@@ -1,15 +1,19 @@
 package ryudongjae.core.order;
 
 import ryudongjae.core.discount.DiscountPolicy;
-import ryudongjae.core.discount.FixDiscountPolicy;
 import ryudongjae.core.member.Member;
 import ryudongjae.core.member.MemberRepository;
-import ryudongjae.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository(); //회원 조
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();  //고정할인
+    private final MemberRepository memberRepository; //회원 조회
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+    private final DiscountPolicy discountPolicy;  //고정할인
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
