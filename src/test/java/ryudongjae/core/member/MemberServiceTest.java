@@ -1,13 +1,23 @@
 package ryudongjae.core.member;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ryudongjae.core.AppConfig;
 
 public class MemberServiceTest {
+    MemberService memberService;
+
+    @BeforeEach //테스트 실행전 실행
+    public void BeforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService =appConfig.memberService();
+    }
+
     @Test
     void join(){
 
-        MemberService memberService = new MemberServiceImpl();
+
 
         //given
         Member member1 = new Member(1L,"memberA",Grade.VIP);

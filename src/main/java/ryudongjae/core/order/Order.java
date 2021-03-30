@@ -1,8 +1,10 @@
 package ryudongjae.core.order;
 
+
 public class Order {
 
     private Long memberId;
+
 
     @Override
     public String toString() {
@@ -26,7 +28,7 @@ public class Order {
 
     public int calcPrice(){
 
-        return itemPrice - discountPrice;
+        return itemPrice - discountPrice ;
     }
 
     public Long getMemberId() {
@@ -46,6 +48,7 @@ public class Order {
     }
 
     public int getItemPrice() {
+
         return itemPrice;
     }
 

@@ -10,7 +10,7 @@ public class Member {
         this.id = id;
         this.name = name;
         this.grade = grade;
-    }
+    } //생성자
 
     public Long getId() {
         return id;
