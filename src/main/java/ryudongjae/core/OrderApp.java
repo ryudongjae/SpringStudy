@@ -1,5 +1,7 @@
 package ryudongjae.core;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ryudongjae.core.member.Grade;
 import ryudongjae.core.member.Member;
 import ryudongjae.core.member.MemberService;
@@ -10,10 +12,14 @@ import ryudongjae.core.order.OrderService;
 
 public class OrderApp {
     public static void main(String[] args) {
+//
+//        AppConfig appConfig = new AppConfig();
+//        MemberService memberService = appConfig.memberService();
+//        OrderService orderService = appConfig.orderService();
 
-        AppConfig appConfig = new AppConfig();
-        MemberService memberService = appConfig.memberService();
-        OrderService orderService = appConfig.orderService();
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
+        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
 
         Member member1 = new Member(1L,"memberA", Grade.VIP);
         Member member2 = new Member(2L,"memberB", Grade.BASIC);
