@@ -17,11 +17,13 @@ public class AppConfig {
     }
     @Bean
     public MemoryMemberRepository memberRepository() {
+
         return new MemoryMemberRepository();
     }
     @Bean
     public OrderService orderService(){
-        return new OrderServiceImpl(memberRepository(),new RateDiscountPolicy());
+
+        return new OrderServiceImpl(memberRepository(),discountPolicy());
     }
     @Bean
     public DiscountPolicy discountPolicy(){
