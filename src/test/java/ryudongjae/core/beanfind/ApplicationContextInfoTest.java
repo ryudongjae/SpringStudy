@@ -14,7 +14,7 @@ public class ApplicationContextInfoTest {
     @DisplayName("모든 빈 출력하기")
     void findAllBean(){
         String[] beanDefinitionNames = ac.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
+        for (String beanDefinitionName : beanDefinitionNames) { //beandefinition은 빈에 대한 정보들이다.
             Object bean = ac.getBean(beanDefinitionName);
             System.out.println("beanDefinitionName = " + beanDefinitionName + " object =" +bean);
         }

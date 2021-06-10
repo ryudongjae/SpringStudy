@@ -8,7 +8,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import ryudongjae.core.AppConfig;
 import ryudongjae.core.member.MemberService;
 import ryudongjae.core.member.MemberServiceImpl;
-import ryudongjae.core.order.OrderService;
 import ryudongjae.core.order.OrderServiceImpl;
 
 import static org.assertj.core.api.Assertions.*;
@@ -27,7 +26,7 @@ class ApplicationContextBasicFindTest {
     @DisplayName("이름 없이 타입만으로 조회")
     void findBeanByType() {
         MemberService memberService = ac.getBean(MemberService.class);
-        assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
+        assertThat(memberService).isInstanceOf(MemberServiceImpl.class); // 인스턴스 확인
     }
 
 
