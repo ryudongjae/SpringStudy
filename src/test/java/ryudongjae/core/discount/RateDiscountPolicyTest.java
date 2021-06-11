@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import ryudongjae.core.member.Grade;
 import ryudongjae.core.member.Member;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class RateDiscountPolicyTest {
 
