@@ -1,8 +1,11 @@
 package ryudongjae.core.discount;
 
+import org.springframework.stereotype.Component;
+import ryudongjae.core.annotation.MainDiscountPolicy;
 import ryudongjae.core.member.Grade;
 import ryudongjae.core.member.Member;
 
+@Component
 public class FixDiscountPolicy implements DiscountPolicy{
     private int discountFixAmountVip = 1000;//vip등급은 1000원 할인.
     private int discountFixAmountGold = 500; //GOLD등급은 500원 할

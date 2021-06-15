@@ -1,8 +1,12 @@
 package ryudongjae.core.discount;
 
+import org.springframework.stereotype.Component;
+import ryudongjae.core.annotation.MainDiscountPolicy;
 import ryudongjae.core.member.Grade;
 import ryudongjae.core.member.Member;
 
+@Component
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercentVip = 7;

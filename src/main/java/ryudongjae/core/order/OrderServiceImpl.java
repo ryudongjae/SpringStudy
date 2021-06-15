@@ -2,23 +2,26 @@ package ryudongjae.core.order;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import ryudongjae.core.annotation.MainDiscountPolicy;
 import ryudongjae.core.discount.DiscountPolicy;
 import ryudongjae.core.member.Member;
 import ryudongjae.core.member.MemberRepository;
 
 @Component
-@RequiredArgsConstructor //final 들어간 필드 생성자 만들어 줌
+//@RequiredArgsConstructor //final 들어간 필드 생성자 만들어 줌
+@Qualifier
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository; //회원 조회
     private final DiscountPolicy discountPolicy;  //고정할인
 
-//   @Autowired // 자동의존관계 주입
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+   @Autowired // 자동의존관계 주입
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 //    @Autowired
 //    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
